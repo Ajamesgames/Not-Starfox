@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         _cockPitCam.Priority = 11;
-        _timeRemainingForCinematic = 5f;
+        _timeRemainingForCinematic = 3f;
         
     }
 
@@ -64,7 +64,7 @@ public class CameraManager : MonoBehaviour
         _timeRemainingForCinematic -= 1 * Time.deltaTime;
         if (Input.anyKey || Input.mousePosition != _lastMousePosition)
         {
-            _timeRemainingForCinematic = 5f;
+            _timeRemainingForCinematic = 3f;
             _noInputMadeForFiveSeconds = false;
         }
         if (_timeRemainingForCinematic <= 0)
