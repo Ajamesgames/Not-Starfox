@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _barrelRollSource;
+
     private void Update()
     {
         QuitGameButton();
+        DoABarrelRoll();
     }
 
     private void QuitGameButton()
@@ -14,6 +17,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+    }
+
+    private void DoABarrelRoll()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            _barrelRollSource.Play();
         }
     }
 }
