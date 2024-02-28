@@ -12,9 +12,10 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float _timeRemainingForCinematic;
     private Vector3 _lastMousePosition = Vector3.zero;
 
+
     private void Start()
     {
-        _cockPitCam.Priority = 11;
+        _thirdPersonCam.Priority = 11;
         _timeRemainingForCinematic = 3f;
         
     }
