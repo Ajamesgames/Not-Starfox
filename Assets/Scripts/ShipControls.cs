@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,12 @@ public class ShipControls : MonoBehaviour
     private float _xBoundary = 10f;
     private float _yBoundary = 6f;
 
+    [SerializeField] private ParticleSystem _spaceParticles;
+
     // Start is called before the first frame update
     void Start()
     {
-        _forwardSpeed = 1f;
+        _forwardSpeed = 10f;
         _speedModifier = 15f;
         _rotSpeed = 15f;
         _returnRotSpeed = 5f;
@@ -75,6 +78,21 @@ public class ShipControls : MonoBehaviour
         _thirdPersonCam.transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
     }
 
+    public void IncreaseForwardSpeed(float speed)
+    {
+        _forwardSpeed += speed;
+    }
+
+    public void IncreaseParticleSpeed()
+    {
+        //var sizeMultiplier = _forwardSpeed * 0.1f;
+        //main.startSize = sizeMultiplier;
+        var main = _spaceParticles.main;
+        main.startSpeed = _forwardSpeed;
+        var trails = _spaceParticles.trails;
+        trails.ratio += 0.1f;
+            
+    }
 
     // private void ShipMovement()
     // {
