@@ -33,8 +33,15 @@ public class ShipControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ShipMovement();
-        MoveCamera();
+        if (transform.position.z < 1800)
+        {
+            ShipMovement();
+            MoveCamera();
+        }
+        else
+        {
+            _spaceParticles.gameObject.SetActive(false);
+        }
     }
 
     private void ShipMovement()
